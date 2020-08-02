@@ -1,0 +1,30 @@
+{% extends 'layout.html' %} 
+{% block title %}TripUpp{% endblock %}
+{% block content %}
+
+
+{% for post in data %}
+<div class="container mt-3">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+          <!-- <div class="col-md-4">
+            <img src="..." class="card-img" alt="...">
+          </div> -->
+          <div class="col-md-8">
+            <div class="card-body">
+                <a href="/solution/{{post.id}}"><h5 class="card-title">{{post.title}}</h5></a>
+              
+              <p class="card-text">
+                  {{post.context}}
+              </p>
+              <!-- <p class="card-text"><small class="text-muted">{{post.id}}</small></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endfor %}
+
+{% load static %}
+<script src="{% static "script.js" %}"></script>
+{% endblock %}

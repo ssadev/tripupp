@@ -1,0 +1,55 @@
+{% extends 'layout.html' %} 
+{% block title %}TripUpp{% endblock %}
+{% block content %}
+
+<section
+  class="jumbotron text-center"
+  style="
+    background: url('https://d10lpgp6xz60nq.cloudfront.net/images/doubt-book-illustration.svg');
+  "
+>
+  <div class="container">
+    <h1>TripUpp</h1>
+    <form method="GET" action="/search/">
+      <div class="input-group mb-3 col-7 container">
+        <input
+          type="text"
+          class="form-control"
+          name="q"
+          placeholder="Search Your Question's answare"
+          aria-label="Search Your Question's answare"
+          aria-describedby="basic-addon2"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="upload-img-btn"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Search Question By Pic"
+          >
+            <i class="fa fa-camera" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="search-by-img-inp-sec">
+    
+        <form method="post" action="/search/" enctype="multipart/form-data" hidden>
+    {% csrf_token %}
+    <input type="file" name="qimg" id="qn-img-inp">
+    <!-- <button type="submit">Upload</button> -->
+  </form>
+    </div>
+    <p class="lead text-muted">
+      Get Physics, Chemistry, Maths Biology Solutions
+    </p>
+    <p></p>
+  </div>
+</section>
+
+
+{% load static %}
+<script src="{% static "script.js" %}"></script>
+{% endblock %}
